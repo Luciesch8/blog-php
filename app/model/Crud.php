@@ -63,12 +63,29 @@ class Crud{
         return $data;
     }
 
+    public function getOneTopicId($id){
+        $stat = $this->databases->prepare('SELECT * FROM topic WHERE id_topic = :id');
+        $stat->execute(array(':id'=> $id));
+        $data = $stat->fetchAll(PDO::FETCH_ASSOC);
+        return $data;
+    }
+
     public function deleteTopic($id_topic)
     {
         $stat = $this->databases->prepare('DELETE FROM topic WHERE id_topic = :id_topic'); //DELETE FROM `topic` WHERE `id_topic` = 10
         $stat->execute(array(':id_topic' => $id_topic));
         $data = $stat->fetchAll(PDO::FETCH_ASSOC);
         return $data;
+    }
+
+    public function updateTopic($name, $id_topic)
+    {
+        //$stat = $this->databases->prepare('UPDATE topic SET name = :name WHERE id_topic = :id_topic');
+        $stat = $this->databases->prepare('UPDATE topic SET name = :name WHERE id_topic = :id_topic');
+        $stat->execute(array(':name' => $name, ':id_topic' => $id_topic));
+        $data = $stat->fetchAll(PDO::FETCH_ASSOC);
+        return $data;
+
     }
 
 
@@ -147,25 +164,6 @@ class Crud{
             $data = $stat->fetchAll(PDO::FETCH_ASSOC);
             return $data;
         }
-
-
-        // public function getAllArticleUsers() // tout les articles de la personne connecter
-        // {
-        //     $stat = $this->databases->prepare('SELECT * FROM article WHERE email = :email');
-        //     $stat->execute(array('email' => $email));
-        //     $data = $stat->fetchAll(PDO::FETCH_ASSOC);
-        //     return $data;
-        // }
-
-        // public function getAllArticleTopics() // tout les articles selon le theme choisi
-        // {
-        //     $stat = $this->databases->prepare('');
-        //     $stat->execute(array('email' => $email));
-        //     $data = $stat->fetchAll(PDO::FETCH_ASSOC);
-        //     return $data;
-        // }
-    
-    
     //end article
 }
 

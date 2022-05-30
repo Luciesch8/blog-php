@@ -43,7 +43,7 @@ session_start();
                                     '.$_SESSION['name'].' '. $_SESSION['lastname'].'
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                    <li><a class="dropdown-item" href="../app/traitement/logout.php">Deconnexion</a></li>
+                                    <li><a class="dropdown-item" href="../app/traitement/logout.php">Logout</a></li>
                                     <li><a class="dropdown-item" href="../views/admin/index.php">Dashboard</a></li>
                                 </ul>
                             </li>
