@@ -9,7 +9,7 @@ class Crud{
 
     }
 
-    public function validateInscriptionUser(String $admin, String $name, String $lastname, String $email,  String $pseudo, String $password) //inscription
+    public function validateInscriptionUser(String $admin, String $name, String $lastname, String $email,  String $pseudo, String $password) 
     {
         $stat = $this->databases->prepare('INSERT INTO user (`admin`, `lastname`, `name`, `pseudo`, `email`, `password`) VALUES (:admin, :lastname, :name, :pseudo, :email, :password)');
         $stat->execute(array('admin' => $admin, ':lastname' => $lastname ,':name' => $name, ':email' => $email, ':pseudo' => $pseudo, ':password' => $password));
