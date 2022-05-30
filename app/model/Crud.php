@@ -44,9 +44,6 @@ class Crud{
 
     }
 
-
-
-
     //start topics
 
 
@@ -83,7 +80,7 @@ class Crud{
 
     public function deleteTopic($id_topic)
     {
-        $stat = $this->databases->prepare('DELETE FROM topic WHERE id_topic = :id_topic'); //DELETE FROM `topic` WHERE `id_topic` = 10
+        $stat = $this->databases->prepare('DELETE FROM topic WHERE id_topic = :id_topic');
         $stat->execute(array(':id_topic' => $id_topic));
         $data = $stat->fetchAll(PDO::FETCH_ASSOC);
         return $data;
@@ -91,12 +88,10 @@ class Crud{
 
     public function updateTopic($name, $id_topic)
     {
-        //$stat = $this->databases->prepare('UPDATE topic SET name = :name WHERE id_topic = :id_topic');
         $stat = $this->databases->prepare('UPDATE topic SET name = :name WHERE id_topic = :id_topic');
         $stat->execute(array(':name' => $name, ':id_topic' => $id_topic));
         $data = $stat->fetchAll(PDO::FETCH_ASSOC);
         return $data;
-
     }
 
 
@@ -115,7 +110,7 @@ class Crud{
 
     public function deleteUser($id)
     {
-        $stat = $this->databases->prepare('DELETE FROM user WHERE id = :id'); //DELETE FROM `topic` WHERE `id_topic` = 10
+        $stat = $this->databases->prepare('DELETE FROM user WHERE id = :id'); 
         $stat->execute(array(':id' => $id));
         $data = $stat->fetchAll(PDO::FETCH_ASSOC);
         return $data;
@@ -134,11 +129,7 @@ class Crud{
         $stat->execute(array('admin' => $admin, ':lastname' => $lastname, ':name' => $name, ':email' => $email, ':pseudo' => $pseudo, ':id' => $id));
         $data = $stat->fetchAll(PDO::FETCH_ASSOC);
         return $data;
-
     }
-
-    
-
 
     //end user
 
@@ -152,7 +143,7 @@ class Crud{
             return $data;
         }
 
-        public function getAllArticle() // tout les articles
+        public function getAllArticle()
         {
             $stat = $this->databases->prepare('SELECT * FROM articles ORDER BY id DESC LIMIT 6 ');
             $stat->execute();
@@ -160,7 +151,7 @@ class Crud{
             return $data;
         }
 
-        public function getAllMyArticle($id_user) // tout mes articles
+        public function getAllMyArticle($id_user) 
         {
             $stat = $this->databases->prepare('SELECT * FROM articles WHERE id_user = :id_user');
             $stat->execute(array(':id_user' => $id_user));
@@ -170,13 +161,13 @@ class Crud{
 
         public function deleteArticle($id)
         {
-            $stat = $this->databases->prepare('DELETE FROM articles WHERE id = :id'); //DELETE FROM `topic` WHERE `id_topic` = 10
+            $stat = $this->databases->prepare('DELETE FROM articles WHERE id = :id');
             $stat->execute(array(':id' => $id));
             $data = $stat->fetchAll(PDO::FETCH_ASSOC);
             return $data;
         }
 
-        public function getOneArticle($id) // un seul article
+        public function getOneArticle($id) 
         {
             $stat = $this->databases->prepare('SELECT * FROM articles WHERE id = :id');
             $stat->execute(array(':id' => $id));
@@ -184,7 +175,7 @@ class Crud{
             return $data;
         }
 
-        public function aleatoireArticle() // article aleatoire
+        public function aleatoireArticle() 
         {
             $stat = $this->databases->prepare('SELECT * FROM articles ORDER BY RAND( ) LIMIT 6');
             $stat->execute();
