@@ -5,10 +5,10 @@ include_once('../../app/model/Crud.php');
 $db = new Crud();
 
 
-$idTopic = $_GET['id'];
+$idUser = $_GET['id'];
 
 
-$topic = $db->getOneTopicId($idTopic);
+$user = $db->getOneUser($idUser);
 
 ?>
 <!DOCTYPE html>
@@ -34,47 +34,54 @@ $topic = $db->getOneTopicId($idTopic);
             </div>
 
             
-            <form class="w-75" action="../../app/traitement/topic/modifUser.php?id=<?php echo $topic[0]['id']; ?>" method="post">
-                <!-- Name input -->
-                <div class="form-outline mb-4">
-                    <input name="name" type="text" class="form-control form-control-lg" />
-                    <label class="form-label">Name</label>
-                </div>
+            <form class="w-75" action="../../app/traitement/user/updateUser.php?id=<?php echo $user[0]['id']; ?>" method="post">
 
                 <!-- Lastname input -->
                 <div class="form-outline mb-4">
-                    <input name="lastname" type="text"  class="form-control form-control-lg" />
+                    <input name="lastname" type="text"  class="form-control form-control-lg" value="<?php echo $user[0]['lastname']; ?>" />
                     <label class="form-label">Lastname</label>
+                </div>
+
+                <!-- Name input -->
+                <div class="form-outline mb-4">
+                    <input name="name" type="text" class="form-control form-control-lg" value="<?php echo $user[0]['name']; ?>"/>
+                    <label class="form-label">Name</label>
                 </div>
 
                 <!-- Email input -->
                 <div class="form-outline mb-4">
-                    <input name="email" type="text"  class="form-control form-control-lg" />
+                    <input name="email" type="text"  class="form-control form-control-lg" value="<?php echo $user[0]['email']; ?>" />
                     <label class="form-label" for="form1Example23">Email</label>
                 </div>
 
                 <!-- Pseudo input -->
                 <div class="form-outline mb-4">
-                    <input name="pseudo" type="text" class="form-control form-control-lg" />
+                    <input name="pseudo" type="text" class="form-control form-control-lg" value="<?php echo $user[0]['pseudo']; ?>"/>
                     <label class="form-label">Pseudo</label>
                 </div>
 
-                <!-- Password input -->
-                <div class="form-outline mb-4">
-                    <input name="password" type="password"class="form-control form-control-lg" />
-                    <label class="form-label">Password</label>
-                </div>
-
-
-                <!-- Pannel -->
                 <div>
                     <label for="">Type</label>
                     <select class="form-select" name="type" id="">
-                        <option name="user" value="0">User</option>
-                        <option name="admin" value="1">Admin</option>
+                        <?php 
+
+                        if ($user[0]['admin'] == 0 ){
+                            
+                            echo '<option name="user" value="0">User</option>
+                            <option name="admin" value="1">Admin</option>';
+
+                        } else{
+
+                            echo '<option name="admin" value="1">Admin</option>
+                            <option name="user" value="0">User</option>';
+
+                        }
+                        
+                        ?>
 
                     </select>
                 </div>
+
                 <div class="mt-5">
                     <button type="submit" class="btn btn-primary">Add User</button>
                 </div>

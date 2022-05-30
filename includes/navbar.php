@@ -45,6 +45,7 @@ session_start();
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                                     <li><a class="dropdown-item" href="../app/traitement/logout.php">Logout</a></li>
                                     <li><a class="dropdown-item" href="../views/admin/index.php">Dashboard</a></li>
+                                    <li><a class="dropdown-item" href="../views/account/index.php">My Account</a></li>
                                 </ul>
                             </li>
                         </ul>

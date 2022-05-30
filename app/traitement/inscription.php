@@ -30,7 +30,8 @@ if($inscr){
     exit;
 
 
-}
+}    header("Location: ../../views/home.php");
+
 
 
 

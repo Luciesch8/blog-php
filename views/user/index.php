@@ -56,7 +56,7 @@ $allUser = $db->getAllUser();
                         <td class="pt-3 pb-3"><?php echo $allUsers['email'] ?></td>
                         <td class="pt-3 pb-3"><?php echo $allUsers['pseudo'] ?></td>
                         <td class="text-center pt-3 pb-3">
-                            <a href="./modif.php" class="text-success m-3">Edit</a>
+                            <a href="./update.php?id=<?php echo $allUsers['id'] ?>" class="text-success m-3">Edit</a>
                             <a href="../../app/traitement/user/deleteUser.php?id=<?php echo $allUsers['id'] ?>" class="text-danger m-3">Delete</a> 
                         </td>
                     </tr>

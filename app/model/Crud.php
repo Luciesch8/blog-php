@@ -35,6 +35,17 @@ class Crud{
         return $data;
     }
 
+    public function updateAccount($lastname, $name, $email, $pseudo, $id)
+    {
+        $stat = $this->databases->prepare('UPDATE user SET lastname = :lastname, name = :name, email = :email, pseudo = :pseudo WHERE id = :id');
+        $stat->execute(array(':lastname' => $lastname, ':name' => $name, ':email' => $email, ':pseudo' => $pseudo, ':id' => $id));
+        $data = $stat->fetchAll(PDO::FETCH_ASSOC);
+        return $data;
+
+    }
+
+
+
 
     //start topics
 
@@ -110,6 +121,22 @@ class Crud{
         return $data;
     }
 
+    public function getOneUser($id){
+        $stat = $this->databases->prepare('SELECT * FROM user WHERE id = :id');
+        $stat->execute(array(':id'=> $id));
+        $data = $stat->fetchAll(PDO::FETCH_ASSOC);
+        return $data;
+    }
+
+    public function updateUser($admin, $lastname, $name, $email, $pseudo, $id)
+    {
+        $stat = $this->databases->prepare('UPDATE user SET admin = :admin, lastname = :lastname, name = :name, email = :email, pseudo = :pseudo WHERE id = :id');
+        $stat->execute(array('admin' => $admin, ':lastname' => $lastname, ':name' => $name, ':email' => $email, ':pseudo' => $pseudo, ':id' => $id));
+        $data = $stat->fetchAll(PDO::FETCH_ASSOC);
+        return $data;
+
+    }
+
     
 
 
@@ -163,6 +190,15 @@ class Crud{
             $stat->execute();
             $data = $stat->fetchAll(PDO::FETCH_ASSOC);
             return $data;
+        }
+
+        public function updateArticle($id, $id_topic, $title, $content)
+        {
+            $stat = $this->databases->prepare('UPDATE articles SET id_topic = :id_topic, title = :title, content = :content WHERE id = :id');
+            $stat->execute(array('id' => $id, ':id_topic' => $id_topic, ':title' => $title, ':content' => $content));
+            $data = $stat->fetchAll(PDO::FETCH_ASSOC);
+            return $data;
+    
         }
     //end article
 }

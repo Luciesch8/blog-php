@@ -53,12 +53,14 @@
                         <td class="pt-3 pb-3"><?php echo $allMyArticles['id_user']?></td> 
                         <td class="pt-3 pb-3"><?php echo $allMyArticles['create_at']?> </td>
                         <td class="text-center pt-3 pb-3">
-                            <a href="../traitement/admin/modif.php?modif=" class="text-success m-3">Edit</a>
+                            <a href="./update.php?id=<?php echo $allMyArticles['id'] ?>" class="text-success m-3">Edit</a>
                             <a href="../../app/traitement/article/deleteArticle.php?id=<?php echo $allMyArticles['id'] ?>" class="text-danger m-3">Delete</a> 
                             <a href="../traitement/checkArticle.php?id=" class="text-primary m-3">Publish</a>
                         </td>
                     </tr>
                     <?php  endforeach; ?>
+
+                    <a href="./update.php">Modify Article</a>
 
 
                 </table>
@@ -69,6 +71,7 @@
         <!-- MyPannel End-->
 
     </div>
+
 
 
 
