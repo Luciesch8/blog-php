@@ -12,18 +12,29 @@
                         Manage Posts
                     </a>
             </li>
-            <li class="nav-item mb-3">
-            <a href="../user/index.php" class="nav-link text-dark font-italic">
-                        <i class="fa fa-bar-chart mr-3 text-primary fa-fw"></i>
-                        Manage Users
-                    </a>
-            </li>
-            <li class="nav-item mb-3">
-            <a href="../topic/index.php" class="nav-link text-dark font-italic">
-                        <i class="fa fa-pie-chart mr-3 text-primary fa-fw"></i>
-                        Manage Topics
-                    </a>
-            </li>
+
+            <?php 
+
+            if ($_SESSION['admin'] == 1){
+
+                echo '<li class="nav-item mb-3">
+                <a href="../user/index.php" class="nav-link text-dark font-italic">
+                            <i class="fa fa-bar-chart mr-3 text-primary fa-fw"></i>
+                            Manage Users
+                        </a>
+                </li>
+                <li class="nav-item mb-3">
+                <a href="../topic/index.php" class="nav-link text-dark font-italic">
+                            <i class="fa fa-pie-chart mr-3 text-primary fa-fw"></i>
+                            Manage Topics
+                        </a>
+                </li>';
+
+            }
+
+            ?>
+
+            
         </ul>
     </div>
         <!-- End vertical navbar -->

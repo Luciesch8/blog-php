@@ -50,15 +50,18 @@ $aleatoireArticle = $db->aleatoireArticle();
             <?php  endforeach;?>
         </div>
     </div>
+    <div>
+        <?php echo $_SESSION['admin']; ?>
+    </div>
 
     <h2>Recent post</h2>
 
     <div class="row mb-5">
-        <div class="w-75 ml-3">   <!-- Recent Article -->
+        <div class=" ml-5 w-75">   <!-- Recent Article -->
 
         <?php  foreach($recentArticle as $recentArticles):  ?>
 
-            <div class="card mb-3 ml-5" style="max-width: 800px;">
+            <div class="card mb-3" style="max-width: 800px;">
                 <div class="row no-gutters">
                     <div class="col-md-4">
                     <img src="../assets/img/landscape-4572804_1280.jpg" class="card-img" alt="...">

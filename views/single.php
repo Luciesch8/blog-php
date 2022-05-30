@@ -18,9 +18,9 @@
     <?php include('../includes/navbar.php')?>
 
     
-    <div class="row  m-3">
+    <div class="row m-3 ">
         <div class="w-75 p-3 ml-5">
-            <div class="p-5 bg-light">
+            <div style="border-radius: 10px" class="p-5 bg-light">
                 <div>
                     <img class="w-100" src="../assets/img/landscape-4572804_1280.jpg" alt="">
                 </div>
